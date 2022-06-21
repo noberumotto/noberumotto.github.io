@@ -1,0 +1,71 @@
+# 从w95仓库拉取源码然后构建静态网页
+
+name: Build & Deploy from w95 repo
+
+on:
+  # 只有在 master 分支修改时执行
+  push:
+    branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # 拉取两个仓库文件然后构建
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-2019
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # 获取静态数据
+      - name: checkout data 💽
+        uses: actions/checkout@v3
+        with:
+          path: data
+
+      # 获取源码
+      - name: clone w95 📀
+        uses: actions/checkout@v3
+        with:
+          repository: noberumotto/w95
+          path: w95
+
+      # 合并
+      - name: copy files 💾
+        run: |
+          Xcopy /Y /E /I data w95\source\src
+          cd w95\source\src
+          dir
+      # 构建静态文件
+      - name: build 🛠
+        working-directory: w95\source
+        run: |
+          npm install
+          npm run w95file
+          npm run build
+      # 上传
+      - name: upload 📤
+        uses: actions/upload-artifact@v1
+        with:
+          name: site
+          path: w95\source\dist
+  # 发布静态文件
+  deploy:
+    concurrency: ci-${{ github.ref }}
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout data
+        uses: actions/checkout@v3
+      # 下载
+      - name: download 📥
+        uses: actions/download-artifact@v1
+        with:
+          name: site
+      # 发布
+      - name: deploy 🎉
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: ghpage
+          folder: 'site'
