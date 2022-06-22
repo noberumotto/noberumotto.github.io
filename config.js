@@ -1,8 +1,8 @@
 //  登录问题
-const loginQuestion = "";
+const loginQuestion = "berumotto来自哪部动画";
 
 //  登录密码
-const loginPassword = "";
+const loginPassword = "名侦探柯南";
 
 const user = "berumotto";
 
