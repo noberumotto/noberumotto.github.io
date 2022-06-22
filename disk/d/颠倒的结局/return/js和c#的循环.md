@@ -37,7 +37,7 @@ console.log(getCreateName("新建文本文档"));
 
 我在c#里又测试了一遍，同样的代码
 
-```c#
+```csharp
  static string[] names = { "新建文本文档", "新建文本文档1", "新建文本文档2" };
 
         static void Main(string[] args)
