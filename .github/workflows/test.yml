@@ -23,8 +23,8 @@ jobs:
         run: |
           git clone https://github.com/${{github.repository}}.git files
           cd files
-          echo --------------->
+          echo "--------------->"
           ls -l
-          echo --------------->
+          echo "--------------->"
           cd disk
           ls -l
