@@ -41,4 +41,4 @@ jobs:
           cd w95\source\src
           dir
           npm install
-          npm w95file
+          npm run w95file
