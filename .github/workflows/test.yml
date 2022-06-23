@@ -37,13 +37,13 @@ jobs:
           echo "unzip ---------------->"
           7z x -mtc master.zip -r -omaster
           #dir
-          cd master\noberumotto.github.io-master\src\disk\c\Photos
-          dir /T:C
+          #cd master\noberumotto.github.io-master\src\disk\c\Photos
+          #dir /T:C
           
-          #Xcopy /Y /E /I w95\source master\noberumotto.github.io-master 
-          #cd master\noberumotto.github.io-master
-          #npm install
-          #npm run w95file
+          Xcopy /Y /E /I w95\source master\noberumotto.github.io-master 
+          cd master\noberumotto.github.io-master
+          npm install
+          npm run w95file
      # - name: test
           #cd w95\source\src
           #dir
