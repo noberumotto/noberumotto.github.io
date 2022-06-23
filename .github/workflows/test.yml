@@ -29,7 +29,7 @@ jobs:
           echo "download ------------>"
           dir
           echo "unzip ---------------->"
-          7z x master.zip -r -o master
+          7z x master.zip -r -omaster
           dir
           echo "show files-------------->"
           cd master
