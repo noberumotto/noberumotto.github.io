@@ -41,5 +41,5 @@ jobs:
           cd w95\source\src
           dir
           echo "show files-------------->"
-          cd w95\source\src\disk\c\Photos
+          cd disk\c\Photos
           dir
