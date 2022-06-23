@@ -19,12 +19,17 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: checkout data 💽
+        uses: actions/checkout@v3
+        
       - name: Run a multi-line script
         run: |
+          echo "checkout --------------->"
+          ls -l
           git clone https://github.com/${{github.repository}}.git files
           cd files
-          echo "--------------->"
+          echo "files --------------->"
           ls -l
-          echo "--------------->"
+          echo "disk --------------->"
           cd disk
           ls -l
