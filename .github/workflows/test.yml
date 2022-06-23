@@ -38,7 +38,7 @@ jobs:
           7z x master.zip -r -omaster
           dir
           cd master\noberumotto.github.io-master\disk\c\Photos
-          dir /t:c
+          dir /T:C
           
           # Xcopy /Y /E /I master\noberumotto.github.io-master w95\source\src
           
