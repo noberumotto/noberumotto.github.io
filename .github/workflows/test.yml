@@ -25,23 +25,19 @@ jobs:
         with:
           repository: noberumotto/w95
           path: w95
-      - uses: suisei-cn/actions-download-file@v1
-        id: downloadfile
-        name: Download the file
+          
+      - name: checkout data 💽
+        uses: actions/checkout@v3
         with:
-          url: https://github.com/noberumotto/noberumotto.github.io/archive/refs/heads/master.zip
+          path: data
+          fetch-depth: 0
+      
       - name: Run a multi-line script
         run: |
-          echo "download ------------>"
+          echo "1 ------------>"
           dir
-          echo "unzip ---------------->"
-          7z x -mtc master.zip -r -omaster
-          #dir
-          #cd master\noberumotto.github.io-master\src\disk\c\Photos
-          #dir /T:C
-          
-          Xcopy /Y /E /I w95\source master\noberumotto.github.io-master 
-          cd master\noberumotto.github.io-master
+          Xcopy /Y /E /I w95\source data 
+          cd data
           npm install
           npm run w95file
      # - name: test
