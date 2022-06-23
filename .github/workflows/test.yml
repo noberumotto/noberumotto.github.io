@@ -38,6 +38,8 @@ jobs:
           7z x master.zip -r -omaster
           dir
           Xcopy /Y /E /I noberumotto.github.io-master w95\source\src
+          cd w95\source\src
+          dir
           echo "show files-------------->"
           cd w95\source\src\disk\c\Photos
           dir
