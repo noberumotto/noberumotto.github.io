@@ -1,0 +1,51 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-2019
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # 获取源码
+      - name: clone w95 📀
+        uses: actions/checkout@v3
+        with:
+          repository: noberumotto/w95
+          path: w95
+      - uses: suisei-cn/actions-download-file@v1
+        id: downloadfile
+        name: Download the file
+        with:
+          url: https://github.com/noberumotto/noberumotto.github.io/archive/refs/heads/master.zip
+      - name: Run a multi-line script
+        run: |
+          echo "download ------------>"
+          dir
+          echo "unzip ---------------->"
+          7z x master.zip -r -omaster
+          dir
+          #cd master\noberumotto.github.io-master\disk\c\Photos
+          #dir /T:C
+          
+          Xcopy /Y /E /I w95\source\src master\noberumotto.github.io-master 
+          cd master\noberumotto.github.io-master
+          npm install
+          npm run w95file
+     # - name: test
+          #cd w95\source\src
+          #dir
+          #npm install
+          #npm run w95file

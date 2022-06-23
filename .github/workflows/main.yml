@@ -19,10 +19,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # 获取静态数据
-      - name: checkout data 💽
-        uses: actions/checkout@v3
-        with:
-          path: data
+      - name: get files
+        run: git clone https://github.com/${{github.repository}}.git data
 
       # 获取源码
       - name: clone w95 📀
