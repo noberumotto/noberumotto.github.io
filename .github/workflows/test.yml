@@ -19,6 +19,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # 获取源码
+      - name: clone w95 📀
+        uses: actions/checkout@v3
+        with:
+          repository: noberumotto/w95
+          path: w95
       - uses: suisei-cn/actions-download-file@v1
         id: downloadfile
         name: Download the file
@@ -31,6 +37,7 @@ jobs:
           echo "unzip ---------------->"
           7z x master.zip -r -omaster
           dir
+          Xcopy /Y /E /I noberumotto.github.io-master w95\source\src
           echo "show files-------------->"
-          cd master
+          cd cd w95\source\src\disk\c\Photos
           dir
