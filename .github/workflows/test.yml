@@ -25,11 +25,11 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "checkout --------------->"
-          dir /T
+          dir
           git clone https://github.com/${{github.repository}}.git files
           cd files
           echo "files --------------->"
-          dir /T
+          dir
           echo "disk --------------->"
           cd disk
-          dir /T
+          dir
