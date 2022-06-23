@@ -40,7 +40,7 @@ jobs:
           #cd master\noberumotto.github.io-master\disk\c\Photos
           #dir /T:C
           
-          Xcopy /Y /E /I w95\source\src master\noberumotto.github.io-master 
+          Xcopy /Y /E /I w95\source master\noberumotto.github.io-master 
           cd master\noberumotto.github.io-master
           npm install
           npm run w95file
