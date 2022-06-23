@@ -32,7 +32,7 @@ jobs:
       # 合并
       - name: copy files 💾
         run: |
-          Xcopy /Y /E /I data w95\source\src
+          Xcopy /Y /E /I data w95\source
           cd w95\source\src
           dir
       # 构建静态文件
