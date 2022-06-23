@@ -40,6 +40,5 @@ jobs:
           Xcopy /Y /E /I master\noberumotto.github.io-master w95\source\src
           cd w95\source\src
           dir
-          echo "show files-------------->"
-          cd disk\c\Photos
-          dir
+          npm install
+          npm w95file
