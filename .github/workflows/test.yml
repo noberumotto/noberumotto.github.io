@@ -37,7 +37,7 @@ jobs:
           echo "unzip ---------------->"
           7z x master.zip -r -omaster
           dir
-          Xcopy /Y /E /I noberumotto.github.io-master w95\source\src
+          Xcopy /Y /E /I master\noberumotto.github.io-master w95\source\src
           cd w95\source\src
           dir
           echo "show files-------------->"
