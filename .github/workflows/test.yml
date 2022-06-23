@@ -39,5 +39,5 @@ jobs:
           dir
           Xcopy /Y /E /I noberumotto.github.io-master w95\source\src
           echo "show files-------------->"
-          cd cd w95\source\src\disk\c\Photos
+          cd w95\source\src\disk\c\Photos
           dir
