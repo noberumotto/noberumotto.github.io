@@ -28,3 +28,9 @@ jobs:
         run: |
           echo "download ------------>"
           dir
+          echo "unzip ---------------->"
+          7z e master.zip
+          dir
+          echo "show files-------------->"
+          cd master
+          dir
